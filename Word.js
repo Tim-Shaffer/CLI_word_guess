@@ -20,6 +20,12 @@ function Word() {
         }
 
     };
+    // added this method to populate the word array with a provided string
+    this.populateWordArray = function(string) {
+        for (i=0; i < string.length; i++) {
+            this.wordArray.push(new letter(string[i])); 
+        }  
+    }
 };
 
 // // Testing the word process first
