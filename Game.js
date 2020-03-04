@@ -48,9 +48,7 @@ function Game(answer) {
         // populate the variable to be used to see how many letters are in the word 
         this.correctLettersNeeded = this.getWinningNumber(this.answer);
 
-        this.startNewGame = false;  
-        
-        this.inGame = true;
+        console.log(this.newWord.showWord()); 
 
     };
     // --------------------------------------------------------------------------------------
@@ -75,7 +73,7 @@ function Game(answer) {
         // if the number of letters correctly found === correctLettersNeeded (WINNER!!!)
         if (this.correctLettersNeeded === this.lettersFound) {
             
-            console.log("Congratulations.  You Won!!!")
+            console.log("\nCongratulations.  You Won!!!\n")
             this.decision = "win";
 
         } else 
@@ -83,7 +81,7 @@ function Game(answer) {
         // when this wrong guess takes the reamining guesses allowed to 0  (LOSS)
         if (this.remainingGuesses === 0) {
 
-            console.log("Too bad.  You Lost.")
+            console.log("\nToo bad.  You Lost.\n")
             this.decision = "loss";      
 
         };
@@ -100,13 +98,15 @@ function Game(answer) {
     // --------------------------------------------------------------------------------------
     this.isGuessCorrect = function(letter) {
 
+        letter = letter.toLowerCase();
+
         // Search the guess word to see if character is found
         if (this.answer.indexOf(letter) != -1){
 
             // match was found - increment the lettersFound variable
             this.lettersFound++;
 
-            console.log("\n CORRECT GUESS");
+            console.log("\n CORRECT GUESS\n");
 
             this.newWord.guessWord(letter); // this works to process a guessed letter!
 
@@ -118,6 +118,7 @@ function Game(answer) {
             this.remainingGuesses--;
 
             console.log("\n INCORRECT GUESS");
+            console.log("Remaining Guesses:  " + this.remainingGuesses + "\n");
 
         };
 

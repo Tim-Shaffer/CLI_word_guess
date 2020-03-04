@@ -23,27 +23,58 @@ var startQuestion = [{
 var levelQuestion = [{
     name: "level",
     message: "What Level would you like to try?",
-    type: "list",
+    type: "rawlist",
     choices: ["Easy", "Harder", "Hardest"]
 }];
 
+var getLetter = [{
+    name: "letter",
+    message: "Guess a letter: ",
+    validate: function(value) {
+        if (value !== "" && value.length === 1 && 
+                (value >= 'a' && value <= 'z')) {
+            if (newGame.guessLetters.indexOf(value) === -1) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+}];
 
+// --------------------------------------------------------------------------------------
+//  function to act on the user prompt as to whether they want to play a game or not 
+// --------------------------------------------------------------------------------------
 function nextAction(answers){
 
-    if (answers.start) {
+    if (answers.start) { 
         startGame();
     } else {
         endGame();
     }
 
 };
+// --------------------------------------------------------------------------------------
+// end of nextAction() function
+// --------------------------------------------------------------------------------------
 
+// --------------------------------------------------------------------------------------
+//  function to start a game and prompt the user for the type of game
+// --------------------------------------------------------------------------------------
 function startGame() {
     
     inquirer.prompt(levelQuestion).then(buildGame);
     
 };
+// --------------------------------------------------------------------------------------
+// end of startGame() function
+// --------------------------------------------------------------------------------------
 
+// --------------------------------------------------------------------------------------
+//  function to end the game
+// --------------------------------------------------------------------------------------
 function endGame() {
     
     console.log("\n--------\nendGame()\n---------");
@@ -53,7 +84,13 @@ function endGame() {
     process.exit();
 
 };
+// --------------------------------------------------------------------------------------
+// end of endGame() function
+// --------------------------------------------------------------------------------------
 
+// --------------------------------------------------------------------------------------
+//  function to build the game based on the selection made by the user
+// -------------------------------------------------------------------------------------
 function buildGame(answers){
 
     switch(answers.level) {
@@ -78,44 +115,51 @@ function buildGame(answers){
     playGame();
  
 };
+// --------------------------------------------------------------------------------------
+// end of buildGame() function
+// --------------------------------------------------------------------------------------
 
+// --------------------------------------------------------------------------------------
+//  function to control game play 
+// --------------------------------------------------------------------------------------
 function playGame()  {
 
-    inquirer
-        .prompt([
-            {
-                name: "letter",
-                message: "Guess a letter: ",
-                validate: function(value) {
-                    
-                    if (newGame.guessLetters.indexOf(value) === -1) {
-            
-                        return true;
-            
-                    } else {
-            
-                        return false;
-            
-                    }
+    console.log("\n");
 
-                }
-            }
-        ])
-        .then( function(check) {
-
-            newGame.isGuessCorrect(check.letter);
-            if (newGame.checkDecision() === "none") {
-                playGame();
-            } else {
-                playAgain();   
-            }
-
-        });
+    inquirer.prompt(getLetter).then(processLetter);
 
 };
+// --------------------------------------------------------------------------------------
+// end of playGame() function
+// --------------------------------------------------------------------------------------
 
+// --------------------------------------------------------------------------------------
+//  function to process the letter that was guessed
+// --------------------------------------------------------------------------------------
+function processLetter(check) {
+    
+    newGame.isGuessCorrect(check.letter);
+    if (newGame.checkDecision() === "none") {
+        playGame();
+    } else {
+        playAgain();   
+    }
+};
+// --------------------------------------------------------------------------------------
+// end of processLetter() function
+// --------------------------------------------------------------------------------------
+
+// --------------------------------------------------------------------------------------
+//  function to start the game play process and give the user the option to play or not
+// --------------------------------------------------------------------------------------
 function playAgain() {
-    inquirer.prompt(startQuestion).then(nextAction);
-};
 
+    inquirer.prompt(startQuestion).then(nextAction);
+
+};
+// --------------------------------------------------------------------------------------
+// end of playAgain() function
+// --------------------------------------------------------------------------------------
+
+// initial start of the game!
 playAgain();
