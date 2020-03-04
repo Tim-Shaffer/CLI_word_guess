@@ -86,19 +86,28 @@ function playGame()  {
             {
                 name: "letter",
                 message: "Guess a letter: ",
+                validate: function(value) {
+                    
+                    if (newGame.guessLetters.indexOf(value) === -1) {
+            
+                        return true;
+            
+                    } else {
+            
+                        return false;
+            
+                    }
+
+                }
             }
         ])
         .then( function(check) {
 
-            if (newGame.hasLetterBeenGuessed(check.letter)) {
+            newGame.isGuessCorrect(check.letter);
+            if (newGame.checkDecision() === "none") {
                 playGame();
             } else {
-                newGame.isGuessCorrect(check.letter);
-                if (newGame.checkDecision() === "none") {
-                    playGame();
-                } else {
-                    playAgain();   
-                }
+                playAgain();   
             }
 
         });

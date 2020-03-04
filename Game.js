@@ -68,27 +68,6 @@ function Game(answer) {
     // --------------------------------------------------------------------------------------
 
     // --------------------------------------------------------------------------------------
-    // method to take the letter entered and check if it was already guessed or not
-    // --------------------------------------------------------------------------------------
-    this.hasLetterBeenGuessed = function(chr) {
-
-        // check to see if the letter was already guessed
-        if (this.guessLetters.indexOf(chr) === -1) {
-            
-            return false;
-
-        } else {
-
-            return true;
-
-        }
-
-    }; 
-    // --------------------------------------------------------------------------------------
-    // end of hasLetterBeenGuessed method
-    // --------------------------------------------------------------------------------------
-
-    // --------------------------------------------------------------------------------------
     // method to check if a game decision needs to be made or not
     // --------------------------------------------------------------------------------------
     this.checkDecision = function() {
