@@ -1,7 +1,4 @@
 // bring in the required js file to access the export
-// var word = require('./Word.js');
-
-// bring in the required js file to access the export
 var game = require('./Game.js');
 
 // Dependency for inquirer npm package
@@ -12,6 +9,14 @@ var fs = require('fs');
 
 // create a new game variable to be populated with each new game
 var newGame;
+
+//
+var wordToGuess;
+
+// create variables to hold the different filenames that hold the search words
+var easyFile = 'easy.txt';
+var harderFile = 'harder.txt';
+var hardestFile = 'hardest.txt';
 
 // define variables for the inquirer questions to be asked
 var startQuestion = [{
@@ -96,23 +101,27 @@ function buildGame(answers){
     switch(answers.level) {
         case "Easy":
             console.log("Easy was chosen.");
-            newGame = new game("hangman");
-            
+            selectWord(easyFile);
+            // newGame = new game(wordToGuess);
             break;
         case "Harder":
             console.log("Harder was chosen.");
-            newGame = new game("hangman");
+            selectWord(harderFile);
+            // newGame = new game("hangman");
             break;
         case "Hardest":
             console.log("Hardest was chosen.");
-            newGame = new game("hangman");
+            selectWord(hardestFile);
+            // newGame = new game("hangman");
             break;
   
     };
 
-    newGame.initializeNewGame();
+    // newGame = new game(wordToGuess);
 
-    playGame();
+    // newGame.initializeNewGame();
+
+    // playGame();
  
 };
 // --------------------------------------------------------------------------------------
@@ -160,6 +169,33 @@ function playAgain() {
 // --------------------------------------------------------------------------------------
 // end of playAgain() function
 // --------------------------------------------------------------------------------------
+
+function selectWord(fileName) {
+
+    // read the random file and store the contents in "data"
+    fs.readFile(fileName, "utf8", function(error, data) {
+
+        // If the code experiences any errors it will log the error to the console.
+        if (error) {
+    
+          return console.log("Error reading " + fileName + ".  Error = " + error);
+    
+        }
+
+        // Then split it by commas (to make it more readable)  - separates values at the comma
+        var dataArr = data.split(",");
+
+        wordToGuess = dataArr[Math.floor(Math.random() * dataArr.length)].toLowerCase();
+
+        newGame = new game(wordToGuess);
+
+        newGame.initializeNewGame();
+
+        playGame();
+  
+  });
+
+}
 
 // initial start of the game!
 playAgain();
