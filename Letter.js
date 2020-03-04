@@ -16,10 +16,7 @@ function Letter(stringVal) {
         
         if (char === this.stringVal) {
             this.letterGuessed = true;
-        } else {
-            this.letterGuessed = false;    
-        }
-
+        } 
     };
 
 };

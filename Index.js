@@ -1,88 +1,112 @@
 // bring in the required js file to access the export
-var word = require('./Word.js');
+// var word = require('./Word.js');
+
+// bring in the required js file to access the export
+var game = require('./Game.js');
 
 // Dependency for inquirer npm package
 var inquirer = require("inquirer");
 
-var wordsToGuess = ["hangman"];  // used for testing the functionality
-// var wordsToGuess = ["robert", "marie", "frank", "debra", "raymond", "geoffrey", "michael", "ally", "amy", "shamsky",
-// "barone", "macdougall", "stefania", "peter", "lois", "warren"];
+// Load the fs package to read 
+var fs = require('fs');
 
-var gameWord;
+// create a new game variable to be populated with each new game
+var newGame;
 
-var remainingGuesses = 2;
+// define variables for the inquirer questions to be asked
+var startQuestion = [{
+    name: "start",
+    message: "Would you like to play a New Game?",
+    type: "confirm"
+    }];
 
-// Function to run the game itself. 
-function playGame() {
-    console.log("\n--------\nplayGame()\n---------");
+var levelQuestion = [{
+    name: "level",
+    message: "What Level would you like to try?",
+    type: "list",
+    choices: ["Easy", "Harder", "Hardest"]
+}];
 
-    var trying = wordsToGuess[0];
 
-    gameWord = new word;
-    
-    gameWord.populateWordArray(trying);
+function nextAction(answers){
 
-    console.log(gameWord.showWord());
-
-    playRound();
-
-};
-
-function playRound() {
-
-    if (remainingGuesses > 0) {
-
-        inquirer
-            .prompt([
-                {
-                    name: "letter",
-                    message: "Guess a letter: "
-                }
-            ])
-            .then(function(guess) {
-
-                gameWord.guessWord(guess.letter);
-
-                remainingGuesses--;
-
-                playRound();
-
-            });
-                
-
+    if (answers.start) {
+        startGame();
     } else {
-
         endGame();
     }
 
 };
 
+function startGame() {
+    
+    inquirer.prompt(levelQuestion).then(buildGame);
+    
+};
+
 function endGame() {
-    // whether it was a Win or Loss
+    
     console.log("\n--------\nendGame()\n---------");
+    console.log("Come back again soon!");
 
-    // Prompts the user if they would like to play again. if yes, run playgame with a value of 0 being passed into it
-    // Otherwise print the "come back again soon message" and exit
+    // Exit the game
+    process.exit();
+
+};
+
+function buildGame(answers){
+
+    switch(answers.level) {
+        case "Easy":
+            console.log("Easy was chosen.");
+            newGame = new game("hangman");
+            
+            break;
+        case "Harder":
+            console.log("Harder was chosen.");
+            newGame = new game("hangman");
+            break;
+        case "Hardest":
+            console.log("Hardest was chosen.");
+            newGame = new game("hangman");
+            break;
+  
+    };
+
+    newGame.initializeNewGame();
+
+    playGame();
+ 
+};
+
+function playGame()  {
+
     inquirer
-        .prompt({
-            name: "again",
-            type: "confirm",
-            message: "Would you like to guess another word?"
-            })
-        .then(function(answer) {
-            if (answer.again === true) {
+        .prompt([
+            {
+                name: "letter",
+                message: "Guess a letter: ",
+            }
+        ])
+        .then( function(check) {
 
-                // update the remaining guesses
-                remainingGuesses = 2;
-
+            if (newGame.hasLetterBeenGuessed(check.letter)) {
                 playGame();
-
             } else {
-
-            console.log("Come back again soon!");
+                newGame.isGuessCorrect(check.letter);
+                if (newGame.checkDecision() === "none") {
+                    playGame();
+                } else {
+                    playAgain();   
+                }
             }
 
         });
+
 };
 
-playGame();
+function playAgain() {
+    inquirer.prompt(startQuestion).then(nextAction);
+};
+
+playAgain();

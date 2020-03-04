@@ -28,6 +28,8 @@ function Word() {
     }
 };
 
+module.exports = Word;  // this works to export the Word constructor!
+
 // // Testing the word process first
 // var word = new Word;
 // // console.log(word);
@@ -40,6 +42,3 @@ function Word() {
 // word.guessWord("r"); // this works to process a guessed letter!
 
 // console.log(word.showWord());  // this will show the word based on the letter being selected or not!
-
-module.exports = Word;  // this works to export the Word constructor!
-
