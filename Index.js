@@ -102,26 +102,17 @@ function buildGame(answers){
         case "Easy":
             console.log("Easy was chosen.");
             selectWord(easyFile);
-            // newGame = new game(wordToGuess);
             break;
         case "Harder":
             console.log("Harder was chosen.");
             selectWord(harderFile);
-            // newGame = new game("hangman");
             break;
         case "Hardest":
             console.log("Hardest was chosen.");
             selectWord(hardestFile);
-            // newGame = new game("hangman");
             break;
   
     };
-
-    // newGame = new game(wordToGuess);
-
-    // newGame.initializeNewGame();
-
-    // playGame();
  
 };
 // --------------------------------------------------------------------------------------
@@ -170,6 +161,9 @@ function playAgain() {
 // end of playAgain() function
 // --------------------------------------------------------------------------------------
 
+// --------------------------------------------------------------------------------------
+// function to randomly select the word to guess from a provided input file
+// --------------------------------------------------------------------------------------
 function selectWord(fileName) {
 
     // read the random file and store the contents in "data"
@@ -195,7 +189,10 @@ function selectWord(fileName) {
   
   });
 
-}
+};
+// --------------------------------------------------------------------------------------
+// end of selectWord() function
+// --------------------------------------------------------------------------------------
 
 // initial start of the game!
 playAgain();
