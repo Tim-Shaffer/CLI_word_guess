@@ -36,6 +36,7 @@ var getLetter = [{
     name: "letter",
     message: "Guess a letter: ",
     validate: function(value) {
+        value = value.toLowerCase();
         if (value !== "" && value.length === 1 && 
                 (value >= 'a' && value <= 'z')) {
             if (newGame.guessLetters.indexOf(value) === -1) {
