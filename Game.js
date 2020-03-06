@@ -20,14 +20,17 @@ function Game(answer) {
         // create a new array from the string but only when the letter is unique
         var unique = [];
         // the first letter always needs to be counted at least once
-        unique.push(str[0]);
+        unique.push(str[0].toLowerCase());
         // loop through the rest of the string
         for (i=1; i < str.length; i++) {
             // see if there is a match already in the unique array
-            if (unique.indexOf(str[i]) === -1 && str[i] !== " ") {
-                unique.push(str[i]);	
+            if (unique.indexOf(str[i].toLowerCase()) === -1 && str[i] !== " ") {
+                unique.push(str[i].toLowerCase());	
             }
         }
+
+        console.log("Unique Letters needed:  " + unique);
+        console.log("Length:  " + unique.length);
         
         return unique.length;
 

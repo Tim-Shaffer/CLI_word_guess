@@ -28,8 +28,8 @@ var startQuestion = [{
 var levelQuestion = [{
     name: "level",
     message: "What Level would you like to try?",
-    type: "rawlist",
-    choices: ["Easy", "Harder", "Hardest"]
+    type: "list",
+    choices: ["1 - Everybody Loves Raymond Characters", "2 - Movies of the 1990's", "3 - Classic Movie Remakes"]
 }];
 
 var getLetter = [{
@@ -99,17 +99,17 @@ function endGame() {
 // -------------------------------------------------------------------------------------
 function buildGame(answers){
 
-    switch(answers.level) {
-        case "Easy":
-            console.log("Easy was chosen.");
+    switch(answers.level.substring(0, 1)) {
+        case "1":
+            // console.log("Easy was chosen.");
             selectWord(easyFile);
             break;
-        case "Harder":
-            console.log("Harder was chosen.");
+        case "2":
+            // console.log("Harder was chosen.");
             selectWord(harderFile);
             break;
-        case "Hardest":
-            console.log("Hardest was chosen.");
+        case "3":
+            // console.log("Hardest was chosen.");
             selectWord(hardestFile);
             break;
   
