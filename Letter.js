@@ -18,7 +18,7 @@ function Letter(stringVal) {
     };
     this.checkGuess = function (char) {
         
-        if (char === this.stringVal) {
+        if (char === this.stringVal.toLowerCase()) {
             this.letterGuessed = true;
         } 
     };

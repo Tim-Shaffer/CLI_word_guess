@@ -179,7 +179,7 @@ function selectWord(fileName) {
         // Then split it by commas (to make it more readable)  - separates values at the comma
         var dataArr = data.split(",");
 
-        wordToGuess = dataArr[Math.floor(Math.random() * dataArr.length)].toLowerCase();
+        wordToGuess = dataArr[Math.floor(Math.random() * dataArr.length)];
 
         newGame = new game(wordToGuess);
 
