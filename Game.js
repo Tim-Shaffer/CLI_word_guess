@@ -24,7 +24,7 @@ function Game(answer) {
         // loop through the rest of the string
         for (i=1; i < str.length; i++) {
             // see if there is a match already in the unique array
-            if (unique.indexOf(str[i]) === -1) {
+            if (unique.indexOf(str[i]) === -1 && str[i] !== " ") {
                 unique.push(str[i]);	
             }
         }

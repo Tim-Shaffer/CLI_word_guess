@@ -8,7 +8,11 @@ function Letter(stringVal) {
         if (this.letterGuessed) {
             return this.stringVal;
         } else {
-            return "_";
+            if (this.stringVal === " ") {
+                return " ";
+            } else {
+                return "_";
+            }
         }
 
     };
