@@ -1,3 +1,6 @@
+// const emitter = new EventEmitter();
+process.setMaxListeners(100);
+
 // bring in the required js file to access the export
 var game = require('./Game.js');
 
@@ -29,7 +32,7 @@ var levelQuestion = [{
     name: "level",
     message: "What Level would you like to try?",
     type: "list",
-    choices: ["1 - Everybody Loves Raymond Characters", "2 - Movies of the 1990's", "3 - Classic Movie Remakes"]
+    choices: ["1 - Everybody Loves Raymond Characters", "2 - Movies of the 2010's", "3 - Classic Movie Remakes"]
 }];
 
 var getLetter = [{

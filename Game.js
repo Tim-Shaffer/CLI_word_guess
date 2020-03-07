@@ -28,9 +28,6 @@ function Game(answer) {
                 unique.push(str[i].toLowerCase());	
             }
         }
-
-        console.log("Unique Letters needed:  " + unique);
-        console.log("Length:  " + unique.length);
         
         return unique.length;
 
@@ -104,7 +101,7 @@ function Game(answer) {
         letter = letter.toLowerCase();
 
         // Search the guess word to see if character is found
-        if (this.answer.indexOf(letter != -1)){
+        if (this.answer.indexOf(letter) != -1){
 
             // match was found - increment the lettersFound variable
             this.lettersFound++;
