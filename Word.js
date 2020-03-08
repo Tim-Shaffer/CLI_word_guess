@@ -20,31 +20,29 @@ function Word() {
             }
 
     };
+    // --------------------------------------------------------------------------------------
     // added this method to populate the word array with a provided string
+    // --------------------------------------------------------------------------------------
     this.populateWordArray = function(string) {
         for (i=0; i < string.length; i++) {
             this.wordArray.push(new letter(string[i])); 
         } 
     };
-    // added method to show all letters on losses
+    // --------------------------------------------------------------------------------------
+    // end of populateWordArray method
+    // --------------------------------------------------------------------------------------
+
+    // --------------------------------------------------------------------------------------
+    // added method to mark all letters as guessed so that the losing word can be displayed
+    // --------------------------------------------------------------------------------------
     this.showWordOnLoss = function() {
         for (let i=0; i < this.wordArray.length; i++) {
             this.wordArray[i].letterGuessed = true;
         }
     }
+    // --------------------------------------------------------------------------------------
+    // end of showWordOnLoss method
+    // --------------------------------------------------------------------------------------
 };
 
 module.exports = Word;  // this works to export the Word constructor!
-
-// // Testing the word process first
-// var word = new Word;
-// // console.log(word);
-
-// var trying = "robert";
-// for (i=0; i < trying.length; i++) {
-//     word.wordArray.push(new letter(trying[i]));   // this works to create a new array of letter objects!
-// };
-
-// word.guessWord("r"); // this works to process a guessed letter!
-
-// console.log(word.showWord());  // this will show the word based on the letter being selected or not!

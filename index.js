@@ -1,7 +1,9 @@
+// -------------  TRYING TO KEEP THE WARNING MESSAGE FROM DISPLAYING ------------
 // const emitter = new EventEmitter();
 // process.setMaxListeners(Infinity);
 // process.setMaxListeners(0);
 require('events').EventEmitter.defaultMaxListeners = 0;
+// --------------------------------------------------------------------------------------
 
 // bring in the required js file to access the export
 var game = require('./Game.js');
@@ -15,13 +17,13 @@ var fs = require('fs');
 // create a new game variable to be populated with each new game
 var newGame;
 
-//
+// create a variable to hold the word to be guessed.
 var wordToGuess;
 
 // create variables to hold the different filenames that hold the search words
-var easyFile = 'easy.txt';
-var harderFile = 'harder.txt';
-var hardestFile = 'hardest.txt';
+var easyFile = '2000.txt';
+var harderFile = '2010.txt';
+var hardestFile = 'remakes.txt';
 
 // define variables for the inquirer questions to be asked
 var startQuestion = [{
@@ -34,7 +36,7 @@ var levelQuestion = [{
     name: "level",
     message: "What Level would you like to try?",
     type: "list",
-    choices: ["1 - Everybody Loves Raymond Characters", "2 - Movies of the 2010's", "3 - Classic Movie Remakes"]
+    choices: ["1 - Movies of the 2000's", "2 - Movies of the 2010's", "3 - Classic Movie Remakes"]
 }];
 
 var getLetter = [{
