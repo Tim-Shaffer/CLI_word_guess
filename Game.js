@@ -98,10 +98,10 @@ function Game(answer) {
     // --------------------------------------------------------------------------------------
     this.isGuessCorrect = function(letter) {
 
-        letter = letter.toLowerCase();
+        // letter = letter.toLowerCase();
 
         // Search the guess word to see if character is found
-        if (this.answer.indexOf(letter) != -1){
+        if (this.answer.indexOf(letter) != -1 || this.answer.indexOf(letter.toUpperCase()) != -1){
 
             // match was found - increment the lettersFound variable
             this.lettersFound++;

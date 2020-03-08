@@ -1,5 +1,7 @@
 // const emitter = new EventEmitter();
-process.setMaxListeners(100);
+// process.setMaxListeners(Infinity);
+// process.setMaxListeners(0);
+require('events').EventEmitter.defaultMaxListeners = 0;
 
 // bring in the required js file to access the export
 var game = require('./Game.js');
@@ -86,8 +88,7 @@ function startGame() {
 // --------------------------------------------------------------------------------------
 function endGame() {
     
-    console.log("\n--------\nendGame()\n---------");
-    console.log("Come back again soon!");
+    console.log("\nCome back again soon!");
 
     // Exit the game
     process.exit();
