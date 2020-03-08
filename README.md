@@ -292,20 +292,20 @@ A Command Line Interface Word Guess game
 
     * Functions:
 
-    `playAgain()` - provide the prompt to the user to play the game or not
-    `nextAction()` - start a game or end the application
-    `startGame()` - provide the prompt for the user to select the theme
-    `endGame()` - end the application process and return to the command line
-    `buildGame()` - determine the theme based file to use to get the words to be guessed
-    `selectWord()` - read the corresponding theme file and randomly select which word from the file is to be guessed.  Creates a newGame object and calls to method to `initializeNewGame()`
-    `playGame()` - provide the prompt for the user to enter the letter to guess
-    `processLetter()` - take the new letter that was guessed and call the game method to `checkDecision()`.  Continues to call `playGame()` while there are still guesses allowed or needed.  If the game has been lost, the game method `losingWord()` is called to show the word that the user was trying to guess before calling the `playAgain()` function to see if the user wants to continue playing.
+        *   `playAgain()` - provide the prompt to the user to play the game or not
+        *   `nextAction()` - start a game or end the application
+        *   `startGame()` - provide the prompt for the user to select the theme
+        *   `endGame()` - end the application process and return to the command line
+        *   `buildGame()` - determine the theme based file to use to get the words to be guessed
+        *   `selectWord()` - read the corresponding theme file and randomly select which word from the file is to be guessed.  Creates a newGame object and calls to method to `initializeNewGame()`
+        *   `playGame()` - provide the prompt for the user to enter the letter to guess
+        *   `processLetter()` - take the new letter that was guessed and call the game method to `checkDecision()`.  Continues to call `playGame()` while there are still guesses allowed or needed.  If the game has been lost, the game method `losingWord()` is called to show the word that the user was trying to guess before calling the `playAgain()` function to see if the user wants to continue playing.
 
     * Theme files - files were created to hold movie titles based on the particular themes.
 
-    `2000.txt` - titles of movies from the 2000's
-    `2010.txt` - titles of movies from the 2010's
-    `remakes.txt` - titles of movies that have been remade 
+        *   `2000.txt` - titles of movies from the 2000's
+        *   `2010.txt` - titles of movies from the 2010's
+        *   `remakes.txt` - titles of movies that have been remade 
 
 # Examples
 
