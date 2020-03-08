@@ -131,6 +131,11 @@ function Game(answer) {
     // end of isGuessCorrect method
     // --------------------------------------------------------------------------------------    
 
+    this.losingWord = function() {
+        this.newWord.showWordOnLoss();
+        console.log(this.newWord.showWord());
+    };
+
 };
 
 module.exports = Game;  // this works to export the Game constructor!

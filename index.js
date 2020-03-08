@@ -144,8 +144,14 @@ function playGame()  {
 function processLetter(check) {
     
     newGame.isGuessCorrect(check.letter);
-    if (newGame.checkDecision() === "none") {
+    var decision = newGame.checkDecision();
+    if (decision === "none") {
         playGame();
+    } else if (decision === "loss") {
+        // show the word 
+        console.log("Correct Word was - ");
+        newGame.losingWord();
+        playAgain();   
     } else {
         playAgain();   
     }
@@ -158,6 +164,8 @@ function processLetter(check) {
 //  function to start the game play process and give the user the option to play or not
 // --------------------------------------------------------------------------------------
 function playAgain() {
+
+    console.log("\n");
 
     inquirer.prompt(startQuestion).then(nextAction);
 

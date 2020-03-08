@@ -15,16 +15,22 @@ function Word() {
     };
     this.guessWord = function(char) {
 
-        for (let i=0; i < this.wordArray.length; i++) {
-            this.wordArray[i].checkGuess(char);
-        }
+            for (let i=0; i < this.wordArray.length; i++) {
+                this.wordArray[i].checkGuess(char);
+            }
 
     };
     // added this method to populate the word array with a provided string
     this.populateWordArray = function(string) {
         for (i=0; i < string.length; i++) {
             this.wordArray.push(new letter(string[i])); 
-        }  
+        } 
+    };
+    // added method to show all letters on losses
+    this.showWordOnLoss = function() {
+        for (let i=0; i < this.wordArray.length; i++) {
+            this.wordArray[i].letterGuessed = true;
+        }
     }
 };
 
