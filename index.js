@@ -34,7 +34,7 @@ var startQuestion = [{
 
 var levelQuestion = [{
     name: "level",
-    message: "What Level would you like to try?",
+    message: "What Theme would you like to try?",
     type: "list",
     choices: ["1 - Movies of the 2000's", "2 - Movies of the 2010's", "3 - Classic Movie Remakes"]
 }];
