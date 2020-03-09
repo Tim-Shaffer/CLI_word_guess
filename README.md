@@ -321,39 +321,39 @@ A Command Line Interface Word Guess game
 
 1.  *node index*
 
-    ![Screenshot for No Action](/testing/screenshots/no_input.jpg)
+    ![Screenshot for starting the app](/screenshots/index.jpg)
 
 1.  *Would you like to play a New Game?*
     
-    ![Screenshot for concert-this kiss](/testing/screenshots/concert-this_kiss.jpg)
+    ![Screenshot for Would you like to play a New Game?](/screenshots/new_game.jpg)
 
 1.  *What Theme would you like to try?*
 
-    ![Screenshot for spotify-this-song hello](/testing/screenshots/spotify-this-song_hello.jpg)
+    ![Screenshot for What Theme would you like to try?](/screenshots/theme.jpg)
 
 1.  *Guess a letter: *
 
-    ![Screenshot for movie-this frozen](/testing/screenshots/movie-this_frozen.jpg)
+    ![Screenshot for Guess a letter:](/screenshots/guess_letter.jpg)
 
 1.  *CORRECT GUESS*
 
-    ![Screenshot for random.txt](/testing/screenshots/random.jpg)
+    ![Screenshot for Correct Guess](/screenshots/correct_guess.jpg)
 
 1.  *INCORRECT GUESS*
 
-    ![Screenshot for do-what-it-says](/testing/screenshots/do-what-it-says.jpg)
+    ![Screenshot for Incorrect Guess](/screenshots/incorrect_guess.jpg)
 
 1.  *Congratulations.  You Won!!!*
 
-    ![Screenshot for do-what-it-says](/testing/screenshots/do-what-it-says.jpg)
+    ![Screenshot for a winning game](/screenshots/winner.jpg)
 
 1.  *Too bad.  You Lost.*
 
-    ![Screenshot for do-what-it-says](/testing/screenshots/do-what-it-says.jpg)
+    ![Screenshot for a losing game](/screenshots/loser.jpg)
 
 1.  *End Game*
 
-    ![Screenshot for do-what-it-says](/testing/screenshots/do-what-it-says.jpg)
+    ![Screenshot for ending the game](/screenshots/end_game.jpg)
 
 
 1. Video of the working app can be found here: https://youtu.be/R86RKsGpOoc
