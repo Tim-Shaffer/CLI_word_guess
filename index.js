@@ -148,11 +148,14 @@ function processLetter(check) {
     newGame.isGuessCorrect(check.letter);
     var decision = newGame.checkDecision();
     if (decision === "none") {
+        console.log(newGame.newWord.showWord()); 
         playGame();
     } else if (decision === "loss") {
         // show the word 
         console.log("Correct Word was - ");
-        newGame.losingWord();
+        console.log("\n");
+        newGame.newWord.showWordOnLoss();
+        console.log(newGame.newWord.showWord()); 
         playAgain();   
     } else {
         playAgain();   

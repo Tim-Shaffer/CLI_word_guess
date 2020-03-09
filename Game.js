@@ -74,6 +74,8 @@ function Game(answer) {
         // if the number of letters correctly found === correctLettersNeeded (WINNER!!!)
         if (this.correctLettersNeeded === this.lettersFound) {
             
+            console.log(this.newWord.showWord()); 
+
             console.log("\nCongratulations.  You Won!!!\n")
             this.decision = "win";
 
@@ -124,24 +126,11 @@ function Game(answer) {
         };
 
         this.updateGuessLetters(letter);
-        
-        console.log(this.newWord.showWord()); 
 
     };
     // --------------------------------------------------------------------------------------
     // end of isGuessCorrect method
     // --------------------------------------------------------------------------------------    
-
-    // --------------------------------------------------------------------------------------
-    // method to show the word when a loss was processed
-    // --------------------------------------------------------------------------------------
-    this.losingWord = function() {
-        this.newWord.showWordOnLoss();
-        console.log(this.newWord.showWord());
-    };
-    // --------------------------------------------------------------------------------------
-    // end of losingWord method
-    // --------------------------------------------------------------------------------------
 
 };
 
