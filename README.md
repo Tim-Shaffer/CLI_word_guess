@@ -41,6 +41,16 @@ A Command Line Interface Word Guess game
     * case insensitive
     * must be a letter  
 
+# Getting started
+
+*   Fork the the repository into your own space on GitHub
+*   Clone your forked repository into your own workspace.
+*   Within the terminal and the folder containing the repository, you must install the required node package dependencies defined in the **package.json** file into your folder.  Trigger the package install  
+
+>
+> npm i 
+> 
+
 # Instuctions 
 1.  Trigger node to run the program 
 

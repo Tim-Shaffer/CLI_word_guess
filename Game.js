@@ -48,6 +48,7 @@ function Game(answer) {
         // populate the variable to be used to see how many letters are in the word 
         this.correctLettersNeeded = this.getWinningNumber(this.answer);
 
+        console.log("\n Guess the Movie Title \n");
         console.log(this.newWord.showWord()); 
 
     };
