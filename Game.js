@@ -121,7 +121,7 @@ function Game(answer) {
             this.remainingGuesses--;
 
             console.log("\n INCORRECT GUESS");
-            console.log("Remaining Guesses:  " + this.remainingGuesses + "\n");
+            console.log("Incorrect Guesses Remaining:  " + this.remainingGuesses + "\n");
 
         };
 
