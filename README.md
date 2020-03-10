@@ -356,5 +356,5 @@ A Command Line Interface Word Guess game
     ![Screenshot for ending the game](/screenshots/end_game.jpg)
 
 
-1. Video of the working app can be found here: https://youtu.be/R86RKsGpOoc
+1. Video of the working app can be found here: https://youtu.be/hgjGsK4woRQ
 
